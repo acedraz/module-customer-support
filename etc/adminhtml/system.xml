@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ACedraz
+ *
+ * @category  ACedraz
+ * @package   CustomerSupport
+ * @version   1.0.0
+ * @author    Aislan Cedraz <aislan.cedraz@gmail.com.br>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="acedraz" translate="label" sortOrder="999999">
+            <label>ACedraz Extensions</label>
+        </tab>
+        <section id="customer_support" translate="label" type="text" sortOrder="-5000" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Customer Support</label>
+            <tab>acedraz</tab>
+            <resource>ACedraz_CustomerSupport::config</resource>
+            <group id="configuration" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Configuration</label>
+                <field id="enable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" canRestore="1">
+                    <label>Enable</label>
+                    <comment>Enable extension functionality</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_log" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" canRestore="1">
+                    <label>Enable Log</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="log_name" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" canRestore="1">
+                    <label>Log Name</label>
+                    <depends>
+                        <field id="enable_log">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="register" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>New Customer Register</label>
+                <field id="validate_empty_characters_in_first_name" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" canRestore="1">
+                    <label>Validate First Name</label>
+                    <comment>Remove empty characters from first name</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+        <section id="customer">
+            <group id="create_account">
+                <field id="enable_customer_support" translate="label comment" type="select" sortOrder="998" showInDefault="1" showInWebsite="1" canRestore="1">
+                    <label>Send Emails to Customer Support</label>
+                    <comment>
+                        <model>ACedraz\CustomerSupport\Block\Adminhtml\Customer\CustomerSupport\Comment</model>
+                    </comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="template_customer_support" translate="label comment" type="select" sortOrder="999" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Template Customer Support</label>
+                    <comment>Template customer support for new customer</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <depends>
+                        <field id="enable_customer_support">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

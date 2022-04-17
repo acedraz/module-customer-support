@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ACedraz
+ *
+ * @category  ACedraz
+ * @package   CustomerSupport
+ * @version   1.0.1
+ * @author    Aislan Cedraz <aislan.cedraz@gmail.com.br>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="customer_create_account_template_customer_support" label="Customer Support New Account" file="customer_support_new_account.html" type="html" module="ACedraz_CustomerSupport" area="frontend"/>
+</config>

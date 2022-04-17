@@ -1,0 +1,29 @@
+<!--
+/**
+ * ACedraz
+ *
+ * @category  ACedraz
+ * @package   CustomerSupport
+ * @version   1.0.1
+ * @author    Aislan Cedraz <aislan.cedraz@gmail.com.br>
+ */
+-->
+<!--@subject {{trans "New customer account to %store_name" store_name=$store.frontend_name}} @-->
+<!--@vars {
+"var store.frontend_name":"Store Name",
+"var customer.email":"Customer Email",
+"var customer.name":"Customer Name",
+"var customer.firstname":"Customer First Name",
+"var customer.lastname":"Customer Last Name"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<p class="greeting">{{trans "%name," name=$customer.name}}</p>
+<p>{{trans "New customer account to %store_name." store_name=$store.frontend_name}}</p>
+<ul>
+    <li><strong>{{trans "Customer First Name:"}}</strong> {{var customer.firstname}}</li>
+    <li><strong>{{trans "Customer Last Name:"}}</strong> {{var customer.lastname}}</li>
+    <li><strong>{{trans "Customer Email:"}}</strong> {{var customer.email}}</li>
+</ul>
+{{template config_path="design/email/footer_template"}}

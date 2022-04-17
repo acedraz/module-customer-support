@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ACedraz
+ *
+ * @category  ACedraz
+ * @package   CustomerSupport
+ * @version   1.0.1
+ * @author    Aislan Cedraz <aislan.cedraz@gmail.com.br>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <customer>
+            <create_account>
+                <enable_customer_support>1</enable_customer_support>
+                <template_customer_support>customer_create_account_template_customer_support</template_customer_support>
+            </create_account>
+        </customer>
+        <customer_support>
+            <configuration>
+                <enable>1</enable>
+                <enable_log>1</enable_log>
+                <log_name>customer_support.log</log_name>
+            </configuration>
+            <register>
+                <validate_empty_characters_in_first_name>1</validate_empty_characters_in_first_name>
+            </register>
+        </customer_support>
+    </default>
+</config>

@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * ACedraz
+ *
+ * @category  ACedraz
+ * @package   CustomerSupport
+ * @version   1.0.1
+ * @author    Aislan Cedraz <aislan.cedraz@gmail.com.br>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="ACedraz\CustomerSupport\Api\SystemInterface"
+                type="ACedraz\CustomerSupport\Model\System"/>
+    <preference for="ACedraz\CustomerSupport\Api\TreatCustomerDataInterface"
+                type="ACedraz\CustomerSupport\Model\TreatCustomerData"/>
+    <preference for="ACedraz\CustomerSupport\Api\EmailSenderInterface"
+                type="ACedraz\CustomerSupport\Model\EmailSender"/>
+    <type name="Magento\Customer\Api\AccountManagementInterface">
+        <plugin name="ACedraz_CustomerSupport_Plugin_Magento_Customer_Api_AccountManagementInterface"
+                type="ACedraz\CustomerSupport\Plugin\Customer\Api\AccountManagementInterface"
+                sortOrder="10"
+                disabled="false"/>
+    </type>
+    <type name="ACedraz\CustomerImport\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="ACedraz\CustomerSupport\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">customerSupport</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">ACedraz\CustomerSupport\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

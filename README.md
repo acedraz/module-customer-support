@@ -29,3 +29,28 @@ Run this command in magento cli terminal (if necessary)
 
     php bin/magento module:enable ACedraz_CustomerSupport
     php bin/magento setup:upgrade
+
+### CONFIGURATIONS ###
+
+STORES -> CONFIGURATION -> ACEDRAZ EXTENSIONS -> CUSTOMER SUPPORT
+
+* Configuration
+
+    In here can enable extension functionality and log name
+
+* New Customer Register
+
+    Enable validation and treat for customer fist name
+
+STORES -> CONFIGURATION -> CUSTOMERS -> CUSTOMERS CONFIGURATION -> CREATE NEW ACCOUNT OPTIONS
+
+* Send Emails to Customer Support
+
+    Enable the functionality to send email notification of new accounts to Customer Support (properly configured in STORES -> CONFIGURATION -> GENERAL -> STORE EMAIL ADDRESSES -> CUSTOMER SUPPORT)
+
+* Template Customer Support
+    
+    Choose a template email for send to customer support
+      
+
+    
